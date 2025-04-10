@@ -99,17 +99,87 @@ export default function BirthdayInvitation() {
             <p className="text-xl text-white">Quedan Invitados a Mi Cumple el Dia</p>
           </motion.div>
 
-          {/* Date Circle */}
+          {/* Date Circle with Football */}
           <motion.div
             initial={{ scale: 0.5, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.5 }}
             className="flex justify-center mt-6"
           >
-            <div className="bg-red-600 rounded-full w-32 h-32 flex flex-col items-center justify-center text-white">
-              <p className="text-sm font-medium">SABADO</p>
-              <p className="text-4xl font-bold">12</p>
-              <p className="text-sm font-medium">ABRIL</p>
+            <div className="relative w-40 h-40 flex items-center justify-center">
+              {/* Rotating football */}
+              <motion.div
+                className="absolute inset-0 w-full h-full"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 20,
+                  repeat: Number.POSITIVE_INFINITY,
+                  ease: "linear",
+                }}
+              >
+                <Image
+                  src="/pelota.svg"
+                  alt="Football Logo"
+                  width={160}
+                  height={160}
+                  className="w-full h-full"
+                />
+              </motion.div>
+
+              {/* Static text inside */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-10 pointer-events-none">
+  <p
+    className="text-2xl font-medium text-red-600"
+    style={{
+      textShadow: `
+        -1px -1px 0 white, /* Sombra superior izquierda */
+        1px -1px 0 white,  /* Sombra superior derecha */
+        -1px 1px 0 white,  /* Sombra inferior izquierda */
+        1px 1px 0 white,   /* Sombra inferior derecha */
+        0px -1px 0 white,  /* Sombra superior */
+        0px 1px 0 white,   /* Sombra inferior */
+        -1px 0px 0 white,  /* Sombra izquierda */
+        1px 0px 0 white    /* Sombra derecha */
+      `,
+    }}
+  >
+    SABADO
+  </p>
+  <p
+    className="text-4xl font-bold text-red-600"
+    style={{
+      textShadow: `
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white,
+        0px -1px 0 white,
+        0px 1px 0 white,
+        -1px 0px 0 white,
+        1px 0px 0 white
+      `,
+    }}
+  >
+    12
+  </p>
+  <p
+    className="text-2xl font-medium text-red-600"
+    style={{
+      textShadow: `
+        -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+        1px 1px 0 white,
+        0px -1px 0 white,
+        0px 1px 0 white,
+        -1px 0px 0 white,
+        1px 0px 0 white
+      `,
+    }}
+  >
+    ABRIL
+  </p>
+</div>
             </div>
           </motion.div>
 
